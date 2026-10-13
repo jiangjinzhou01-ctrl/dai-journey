@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eee5d1">
+  <meta name="description" content="以画为境，以人为诗。2603班敬赠戴能斌老师，一部可以探索、题字与落印的数字中国古画。">
+  <title>戴师行旅图 · 2603</title>
+  <link rel="icon" href="./assets/seal.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+<main id="app" data-mode="intro">
+  <canvas id="painting" aria-label="可横向探索的原创山水长卷" role="img"></canvas>
+  <div class="silk-edge edge-left" aria-hidden="true"></div><div class="silk-edge edge-right" aria-hidden="true"></div>
+  <header id="masthead">
+    <button id="back" hidden aria-label="返回长卷">归卷</button>
+    <button id="title-button" aria-label="打开作品说明"><span class="small-seal">戴</span><span>戴师行旅图</span></button>
+    <div class="header-tools"><button id="sound" aria-pressed="false">听风 · 关</button><button id="quality" aria-pressed="false">轻绘</button></div>
+  </header>
+  <section id="intro" aria-labelledby="work-title">
+    <div class="intro-caption">2603班 · 敬赠戴能斌老师</div>
+    <div class="title-column"><h1 id="work-title">戴师行旅图</h1><span class="title-seal">师恩<br>入画</span></div>
+    <div class="intro-side"><p>以画为境<br>以人为诗</p><span>THE JOURNEY<br>OF MR. DAI</span></div>
+    <button id="unroll" class="unroll"><span>展卷入画</span><small>轻触，去寻一段寻常时光</small></button>
+    <div class="intro-bottom">一卷山水，几件小事。</div>
+  </section>
+  <div id="hotspots" aria-label="画中可探索的事物"></div>
+  <div id="scene-heading" hidden><span id="chapter-number"></span><h2 id="chapter-name"></h2><p id="chapter-subtitle"></p></div>
+  <aside id="note" hidden aria-live="polite"><p id="note-text"></p><button id="close-note" aria-label="收起纸笺">收笺</button></aside>
+  <section id="colophon" hidden aria-label="亲手题跋">
+    <div class="colophon-heading"><span>卷末 · 留一笔</span><h2>此刻，也在画中。</h2></div>
+    <div class="writing-paper"><canvas id="ink" aria-label="可触摸书写的宣纸"></canvas><span class="paper-watermark" aria-hidden="true">2603</span></div>
+    <div class="writing-tools"><button id="undo">撤一笔</button><button id="clear">清纸</button><span>用手指写字或画画</span></div>
+    <label for="message">纸上短笺 <small>只存于这台设备</small></label>
+    <textarea id="message" maxlength="64" rows="2" placeholder="想留下的话，写在这里。"></textarea>
+    <div class="seal-row"><button id="stamp" aria-label="长按盖上2603班朱砂印" aria-pressed="false"><span>二六<br>〇三</span></button><p id="stamp-help">长按朱印，落款成卷。<br><small>键盘可按住空格或回车</small></p><button id="export">保存画卷</button></div>
+  </section>
+  <section id="saved" hidden aria-label="纪念画面预览"><h2>这一笔，留下了。</h2><p>点击下载；手机也可长按下方画面保存。</p><img id="saved-image" alt="包含个人题字、留言和2603朱印的纪念画卷"><div><button id="download">下载图片</button><button id="share">分享图片</button><button id="edit">再题一笔</button></div></section>
+  <section id="about" hidden aria-labelledby="about-title"><h2 id="about-title">画中有先生</h2><p>此卷由2603班敬赠戴能斌老师。</p><p>温和待人、认真负责、从不拖堂，临近中午有时提前两分钟下课；曾练习声乐，最终选择体育。这些真实的小事，是作品的来处。</p><p>古代场景、人物衣着、题跋与山间小路均为艺术化想象，人物并非肖像。画中语句不是老师的真实引语。</p><p>留言、笔迹与探索进度仅保存在当前浏览器。没有多人同步或上传服务。声音为本项目原创合成。</p><button id="revisit">重新游览</button><button id="close-about">合笺</button></section>
+  <footer id="journey-footer" hidden>
+    <p id="hint" aria-live="polite">左右移卷，轻触画中门庭。</p>
+    <div id="scene-tools" hidden><label id="time-label" hidden>距下课 <input id="time" type="range" min="0" max="100" value="0" aria-label="推动象征性的下课时间"><span id="time-value">尚早</span></label><label id="kite-label" hidden>牵风 <input id="kite" type="range" min="0" max="100" value="50" aria-label="拖动风筝线"></label><button id="find">寻物</button><div id="action-list" hidden></div></div>
+    <nav id="chapters" aria-label="长卷章节"></nav>
+    <div class="footer-caption"><span id="progress">尚未探访</span><button id="to-colophon">卷末题跋</button></div>
+  </footer>
+  <div id="ink-transition" aria-hidden="true"></div>
+  <p id="status" role="status" hidden></p>
+</main>
+<script type="module" src="./src/app.js"></script>
+<noscript>《戴师行旅图》需要启用浏览器 JavaScript 才能展开互动。所有资源随作品提供，无需登录。</noscript>
+</body>
+</html>
